@@ -17,9 +17,10 @@ const questions = [
         name: "textColor"
     },
     {
-        type: "input",
+        type: "list",
         message: "Enter the shape name: ",
-        name: "shape"
+        name: "shape",
+        choices: ["circle", "triangle", "square"]
     },
     {
         type: "input",
@@ -31,26 +32,43 @@ const questions = [
 
 // TODO: Create a function to write README file
 function writeToFile(data) {
-    fs.writeFile('../output/SVG.txt', data , (error) => {
+    fs.writeFile('logo.svg', data , (error) => {
         if(error){
             return console.log(error);
         }else{
-            console.log('File made successfully.');
+            console.log('Generated logo.svg.');
         }
     })
 }
 
 function putInFormat(data) {
-    return `
-    text: ${data.text}
-
-    text color: ${data.textColor}
-
-    shape: ${data.shape}
+    var outStr = '<svg width="200" height="200" xmlns="http://www.w3.org/2000/svg">';
+    if(data.shape === "circle") {
+        outStr += 
+        `
+            <circle cx="100" cy="100" r="80" stroke="black" stroke-width="2" fill="${data.shapeColor}" />
+        `;    
+    }
+    else if(data.shape === "square") {
+        outStr += 
+        `
+        <rect x="10" y="10" width="30" height="30" stroke="black" fill="${data.shapeColor}" stroke-width="5"/>
+        `;
+    }
+    else {
+        outStr += `
+        <polygon points="50, 13.397 100, 100 0, 100" fill="${data.shapeColor}"/>
+        `;
+    }
     
-    shape color: ${data.shapeColor}
-  
-  `;
+    outStr += 
+    `   <text x="5" y="30" fill='${data.textColor}' font-size="35">${data.text}</text>
+    `
+    outStr += 
+    `   </svg>
+    `;
+
+    return outStr;
   }
 
 
