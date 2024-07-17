@@ -52,7 +52,7 @@ function putInFormat(data) {
     }
     else if(data.shape === "square") {
         outStr += 
-        `   <rect x="10" y="10" width="30" height="30" stroke="black" fill="${data.shapeColor}" stroke-width="5"/>
+        `   <rect x="0" y="0" width="100" height="100" stroke="black" fill="${data.shapeColor}" stroke-width="5"/>
         `;
     }
     else {
@@ -62,7 +62,7 @@ function putInFormat(data) {
     }
     
     outStr += 
-    `   <text x="5" y="30" fill='${data.textColor}' font-size="35">${data.text}</text>
+    `   <text x="50" y="100" fill='${data.textColor}' font-size="35">${data.text}</text>
     `
     outStr += 
     `</svg>`;
