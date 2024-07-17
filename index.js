@@ -43,27 +43,27 @@ function writeToFile(data) {
 
 function putInFormat(data) {
     var outStr = 
-    `<svg width="200" height="200" xmlns="http://www.w3.org/2000/svg">
+    `<svg width="300" height="300" xmlns="http://www.w3.org/2000/svg">
     `;
     if(data.shape === "circle") {
         outStr += 
-        `   <circle cx="100" cy="100" r="80" stroke="black" stroke-width="2" fill="${data.shapeColor}" />
+        `   <circle cx="150" cy="150" r="150" stroke-width="2" fill="${data.shapeColor}" />
+        <text x="50" y="155" fill='${data.textColor}' font-size="35">${data.text}</text>
         `;    
     }
     else if(data.shape === "square") {
         outStr += 
-        `   <rect x="0" y="0" width="100" height="100" stroke="black" fill="${data.shapeColor}" stroke-width="5"/>
+        `   <rect x="0" y="0" width="300" height="300" fill="${data.shapeColor}" stroke-width="5"/>
+        <text x="50" y="155" fill='${data.textColor}' font-size="35">${data.text}</text>
         `;
     }
     else {
         outStr += 
-        `   <polygon points="50, 13.397 100, 100 0, 100" fill="${data.shapeColor}"/>
-        `;
+        `   <polygon points="150, 0 300, 300 0, 300" fill="${data.shapeColor}"/>
+        <text x="85" y="175" fill='${data.textColor}' font-size="35">${data.text}</text>
+            `;
     }
     
-    outStr += 
-    `   <text x="50" y="100" fill='${data.textColor}' font-size="35">${data.text}</text>
-    `
     outStr += 
     `</svg>`;
 
