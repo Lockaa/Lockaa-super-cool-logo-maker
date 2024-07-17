@@ -42,22 +42,22 @@ function writeToFile(data) {
 }
 
 function putInFormat(data) {
-    var outStr = '<svg width="200" height="200" xmlns="http://www.w3.org/2000/svg">';
+    var outStr = 
+    `<svg width="200" height="200" xmlns="http://www.w3.org/2000/svg">
+    `;
     if(data.shape === "circle") {
         outStr += 
-        `
-            <circle cx="100" cy="100" r="80" stroke="black" stroke-width="2" fill="${data.shapeColor}" />
+        `   <circle cx="100" cy="100" r="80" stroke="black" stroke-width="2" fill="${data.shapeColor}" />
         `;    
     }
     else if(data.shape === "square") {
         outStr += 
-        `
-        <rect x="10" y="10" width="30" height="30" stroke="black" fill="${data.shapeColor}" stroke-width="5"/>
+        `   <rect x="10" y="10" width="30" height="30" stroke="black" fill="${data.shapeColor}" stroke-width="5"/>
         `;
     }
     else {
-        outStr += `
-        <polygon points="50, 13.397 100, 100 0, 100" fill="${data.shapeColor}"/>
+        outStr += 
+        `   <polygon points="50, 13.397 100, 100 0, 100" fill="${data.shapeColor}"/>
         `;
     }
     
@@ -65,8 +65,7 @@ function putInFormat(data) {
     `   <text x="5" y="30" fill='${data.textColor}' font-size="35">${data.text}</text>
     `
     outStr += 
-    `   </svg>
-    `;
+    `</svg>`;
 
     return outStr;
   }
