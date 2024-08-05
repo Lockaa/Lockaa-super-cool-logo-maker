@@ -30,3 +30,7 @@ THEN I am shown a 300x300 pixel image that matches the criteria I entered
 
 Repo link:
 https://github.com/Lockaa/module10-logo-maker
+
+Video Link:
+https://drive.google.com/file/d/1POBIF64DjvxO0cWXtzYRXGNOcxmWSCDk/view?usp=sharing
+
